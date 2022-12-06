@@ -18,11 +18,7 @@ public class Main {
             queue.add(sc.nextInt());
         }
         int answer = 0;
-        if (queue.size() == 0) {
-            System.out.println(0);
-            return;
-        }
-        while (dasom <= queue.peek()) {
+        while (!queue.isEmpty() && dasom <= queue.peek()) {
             int max = queue.remove();
             dasom++;
             answer++;
