@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -35,6 +37,28 @@ public class Main {
             sb.append("-1");
             return;
         }
-
+        for (int i = n - 2; i >= 0; i--) {
+            if (list.get(i) < list.get(i + 1)) {
+                continue;
+            }
+            int max = i + 1;
+            for (int j = i + 1; j < n; j++) {
+                if (list.get(max) < list.get(j) && list.get(j) < list.get(i)) {
+                    max = j;
+                }
+            }
+            int temp = list.get(i);
+            list.set(i, list.get(max));
+            list.set(max, temp);
+            List<Integer> answer = list.subList(0, i + 1);
+            List<Integer> needToSort = list.subList(i + 1, n);
+            answer.addAll(needToSort.stream()
+                    .sorted(Collections.reverseOrder())
+                    .collect(Collectors.toList()));
+            sb.append(answer.stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(" ")));
+            break;
+        }
     }
 }
