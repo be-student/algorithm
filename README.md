@@ -1,4 +1,4 @@
-# algorithm
+총합 정해진 dp 에서 차를 사용하는 경우, 그냥 - 를 사용하는 것이 아니라 + 를 미리 해서 처리해두기
 
 algorithm/app/src/main/java/algorithm 으로 가시면, 지금까지 풀었던 문제를 볼 수 있습니다.
 
