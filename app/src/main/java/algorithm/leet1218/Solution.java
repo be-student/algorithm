@@ -1,7 +1,5 @@
 package algorithm.leet1218;
 
-import java.util.concurrent.Executors;
-
 public class Solution {
 
     public int longestSubsequence(int[] arr, int difference) {
@@ -11,7 +9,6 @@ public class Solution {
             dp[arr[i] + 20000] = dp[arr[i] - difference + 20000] + 1;
             answer = Math.max(answer, dp[arr[i] + 20000]);
         }
-        Executors.
         return answer;
 
     }
